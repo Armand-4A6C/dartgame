@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <canvas id="myCanvas"></canvas>
+    </body>
+<script>
+    var myCanvas = document.getElementById("myCanvas");
+    myCanvas.width = 600;
+    myCanvas.height = 600;
+
+    var ctx = myCanvas.getContext("2d");
+
+
+    function drawLine(ctx, startX, startY, endX, endY){
+        ctx.beginPath();
+        ctx.moveTo(startX,startY);
+        ctx.lineTo(endX,endY);
+        ctx.stroke();
+    }
+
+    function drawArc(ctx, centerX, centerY, radius, startAngle, endAngle){
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        ctx.stroke();
+    }
+
+
+    function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color ){
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.moveTo(centerX,centerY);
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    drawArc(ctx, 300,300,200, 0, 2*Math.PI);
+
+    var i1 = 0.05;
+    var i2 = 0.15;
+    for (var i = 0; i < 10; i++) {
+
+        drawPieSlice(ctx, 300,300,200, Math.PI*i1, Math.PI*i1 + Math.PI*0.1, '#ddd');
+        drawPieSlice(ctx, 300,300,200, Math.PI*i2, Math.PI*i2 + Math.PI*0.1, 'black');
+
+        i1 = i1 + 0.2;
+        i2 = i2 + 0.2;
+
+    }
+
+    function boe () {
+        drawPieSlice(ctx, 300,300,200, Math.PI*i1, Math.PI*i1 + Math.PI*0.1, 'blue');
+        drawPieSlice(ctx, 300,300,200, Math.PI*i2, Math.PI*i2 + Math.PI*0.1, 'green');
+
+        i1 = i1 + 0.15;
+        i2 = i2 + 0.15;
+    }
+    setInterval(boe, 250);
+
+
+    // drawPieSlice(ctx, 150,150,150, Math.PI*0.4, Math.PI*0.4 + Math.PI*0.2, 'green');
+    //
+    // var txt = "";
+    // txt += "<p>window.innerWidth:" + window.innerWidth + "</p>";
+    // txt += "<p>window.innerHeight:" + window.innerHeight + "</p>";
+
+    //alert(txt);
+
+</script>
+</html>
