@@ -5,6 +5,27 @@ var myCanvas = document.getElementById("canvas");
 var ctx = myCanvas.getContext("2d");
 
 
+//*------------------
+// Responsiveness
+//*------------------
+function responsiveCanvas() {
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var lScreenMultiplier = 1;
+
+    if (width > 800 && height > 800) {
+        lScreenMultiplier = 4;
+    } else if (width > 600 && height > 600) {
+        lScreenMultiplier = 3;
+    } else if (width > 400 && height > 400) {
+        lScreenMultiplier = 2;
+    } else {
+        lScreenMultiplier = 1;
+    }
+
+    return lScreenMultiplier;
+}
+
 //*-------------------
 // Draw functions
 //*-------------------
