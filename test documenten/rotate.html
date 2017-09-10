@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var c = document.getElementById("myCanvas");
+var context = c.getContext("2d");
+
+var canvasWidth = myCanvas.width = 500;
+var canvasHeight = myCanvas.height = 500;
+
+function rotate() {
+
+  // Clear the canvas
+  context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+  // Move registration point to the center of the canvas
+  context.translate(canvasWidth/2, canvasWidth/2);
+
+  // Rotate 1 degree
+  context.rotate(Math.PI / 180);
+
+  // Move registration point back to the top left corner of canvas
+  context.translate(-canvasWidth/2, -canvasWidth/2);
+
+  context.fillStyle = "red";
+  context.fillRect(canvasWidth/4, canvasWidth/4, canvasWidth/2, canvasHeight/4);
+  context.fillStyle = "blue";
+  context.fillRect(canvasWidth/4, canvasWidth/2, canvasWidth/2, canvasHeight/4);
+}
+
+setInterval(rotate, 100);
+
+</script>
+
+<p><strong>Note:</strong> The canvas tag is not supported in Internet
+Explorer 8 and earlier versions.</p>
+
+</body>
+</html>
