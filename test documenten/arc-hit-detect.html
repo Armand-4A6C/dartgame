@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <canvas id="canvas" width="300" height="300">shows nothing</canvas>
+
+
+        <script>
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            function shape() {
+                var i1 = 0.05;
+                ctx.beginPath();
+                //ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
+                ctx.moveTo(150,150);
+                ctx.arc(150, 150, 150, 0, Math.PI*1.5)
+                //ctx.arc(250, 250, Math.PI*i1, Math.PI*i1 + Math.PI*0.1, true);
+                ctx.closePath();
+            }
+
+            function draw() {
+                shape();
+                ctx.fillStyle = 'black';
+                ctx.fill();
+            }
+
+            function checkHit(x, y) {
+                shape();
+                return ctx.isPointInPath(x, y);
+            }
+
+            ctx.canvas.addEventListener("mouseup",function(event) {
+
+
+                }
+            )
+
+            // function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color ){
+            //     ctx.fillStyle = color;
+            //     ctx.beginPath();
+            //     ctx.moveTo(centerX,centerY);
+            //     ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+            //     ctx.closePath();
+            //     ctx.fill();
+            // }
+            // var i1 = 0.0;
+            // drawPieSlice(ctx, 150,150,150, Math.PI*i1, Math.PI*i1 + Math.PI*1.5, '#black');
+            draw()
+        </script>
+    </body>
+</html>
