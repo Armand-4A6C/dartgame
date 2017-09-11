@@ -9,3 +9,24 @@ http://www.darthousecothen.nl/afmetingen-dartbord/
     E buitenmaten van het totale dartboard 451 mm +/- 3 mm
     F midden van de bullseye tot buitenkant tripple-ring is 107 mm +/- 0,2 mm
     G midden van de bullseye tot buitenkant dubbelring is 170 mm +/- 0,2 mm
+
+
+	
+	
+
+	
+
+	
+	
+  van binnen naar buiten gerekend
+    Bullseye --> 0.02816 --C12.7
+    BullseyeRing --> 0.0705 --B31.8
+    FirstRing --> 0.23725 --F107
+    SecondRing --> 0,37694 --G170
+    
+    Total E = 100% --> 451
+    Tripples and doubles	A = 0.0213 --> 9.6
+    
+0,21595
+
+	
