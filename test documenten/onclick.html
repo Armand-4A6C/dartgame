@@ -24,21 +24,26 @@
 
         // define some cities
         var cities=[];
-        cities.push({x:100, y:75,  radius:50, name:"large city"});
-        cities.push({x:200, y:100, radius:30, name:"medium city"});
-        cities.push({x:150, y:150, radius:25, name:"small city"});
+        cities.push({x:100, y:75,  radius:50, startAngle:0, endAngle:2,name:"large city"});
+        cities.push({x:200, y:100, radius:30, startAngle:0, endAngle:2,name:"medium city"});
+        cities.push({x:150, y:150, radius:25, startAngle:0, endAngle:2,name:"small city"});
+        cities.push({x:250, y:150, radius:40, startAngle:0, endAngle:0.2, name:"weird city"});
 
         function hi(){
 
             // draw cities
             ctx.beginPath();
-            ctx.lineWidth=3;
-            ctx.strokeStyle="blue";
+            // ctx.lineWidth=3;
+            // ctx.strokeStyle="blue";
             for (var i=0;i<cities.length;i++){
                 ctx.beginPath();
-                ctx.arc(cities[i].x, cities[i].y, cities[i].radius, 0 , 2 * Math.PI, false);
-                ctx.stroke();
+                ctx.moveTo(cities[i].x, cities[i].y);
+                ctx.arc(cities[i].x, cities[i].y, cities[i].radius, cities[i].startAngle * Math.PI, cities[i].endAngle * Math.PI, false);
+                ctx.fillStyle = 'red';
+                ctx.fill();
+                // ctx.stroke();
             }
+
         }
         function handleMouseDown(e) {
           // get canvasXY of click
