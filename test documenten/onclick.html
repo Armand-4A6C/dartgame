@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+    <style>
+        body{ background-color: ivory; }
+        canvas{border:1px solid red;}
+    </style>
+
+</head>
+
+<body>
+    <canvas id="canvas" width=300 height=300></canvas>
+
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        //var canvasOffset= offset();
+        var offsetX=canvas.offsetLeft
+        var offsetY=canvas.offsetTop;
+
+        // define some cities
+        var cities=[];
+        cities.push({x:100, y:75,  radius:50, name:"large city"});
+        cities.push({x:200, y:100, radius:30, name:"medium city"});
+        cities.push({x:150, y:150, radius:25, name:"small city"});
+
+        function hi(){
+
+            // draw cities
+            ctx.beginPath();
+            ctx.lineWidth=3;
+            ctx.strokeStyle="blue";
+            for (var i=0;i<cities.length;i++){
+                ctx.beginPath();
+                ctx.arc(cities[i].x, cities[i].y, cities[i].radius, 0 , 2 * Math.PI, false);
+                ctx.stroke();
+            }
+        }
+        function handleMouseDown(e) {
+          // get canvasXY of click
+          canvasMouseX = e.clientX - offsetX;
+          canvasMouseY = e.clientY - offsetY;
+          // test if we clicked in any cities
+          for(var i=0; i<cities.length; i++) {
+              var dx = canvasMouseX - cities[i].x;
+              var dy = canvasMouseY - cities[i].y;
+              var isInCity = (dx * dx + dy * dy) < (cities[i].radius * cities[i].radius);
+              if (isInCity) {
+                  alert("You clicked in the " + cities[i].name);
+              }
+          }
+        }
+
+            //$("#canvas").mousedown(function(e){handleMouseDown(e);});
+            // var canvas = document.getElementById("canvas");
+            // canvas.addEventListener("click", handleMouseDown(event));
+            document.getElementById("canvas").addEventListener("click", handleMouseDown);
+            // end $(function(){});
+
+        hi();
+    </script>
+</body>
+</html>
