@@ -1,0 +1,20 @@
+stap 1 
+  teken de objecten ring voor ring van buiten naar binnen.
+
+stap 2
+  creeer de onclick check van binnen naar buiten.
+
+stap 3
+  voeg een dartpijl in.
+
+stap 4
+  beweeg de dart in circels en gebruik de muis als start positie.
+
+stap 5 
+  gebruik de eind positie van de dart voor het checken van de score
+
+stap 6
+  voeg een beetje randomness toe.
+
+stap 7
+  de CPU 
