@@ -32,22 +32,39 @@ drawDartboard(scoreE)
 // EventhandleMouseUp
 // -------------------------
 
-function handleMouseUp(e) {
-  // get canvasXY of click
-  canvasMouseX = e.clientX - offsetX;
-  canvasMouseY = e.clientY - offsetY;
+function handleMouseUpLoop(e) {
 
-  // test if we clicked in any cities
-  for(var iA=0; iA<7; iA++) {
-      for (var iB = 0; iB < scoreE[iA].length; iB++) {
-          var dx = canvasMouseX - scoreE[iA][iB].x;
-          var dy = canvasMouseY - scoreE[iA][iB].y;
-          var isInCity = (dx * dx + dy * dy) < (scoreE[iA][iB].radius * scoreE[iA][iB].radius);
-          if (isInCity) {
-              return alert("You clicked in the " + scoreE[iA][iB].name);
-          }
+   for(var iA=0; iA<scoreE.length; iA++) {
+      for (var iB = 0; iB<scoreE[iA].length; iB++) {
+
+         var catch1 = handleMouseUp(e,scoreE[iA][iB])
+         if (catch1 == false) {
+             //alert("some")
+         } else {
+             return catch1
+         }
       }
-
   }
 }
-document.getElementById("canvas").addEventListener("click", handleMouseUp);
+function handleMouseUp(e, scoreE) {
+    // get canvasXY of click
+    canvasMouseX = e.clientX - offsetX;
+    canvasMouseY = e.clientY - offsetY;
+
+    var dx = canvasMouseX - scoreE.x;
+    var dy = canvasMouseY - scoreE.y;
+
+    // test if clicked area is inside a certaint radius
+    if ((dx * dx + dy * dy) < (scoreE.radius * scoreE.radius)) {
+        console.log((dx*dx + dy *dy) + ("___") + (scoreE.radius * scoreE.radius) )
+
+        arc()
+        return alert("You clicked in the " + scoreE.score)
+    }
+    else {
+        return false;
+    }
+}
+
+
+document.getElementById("canvas").addEventListener("click", handleMouseUpLoop);
