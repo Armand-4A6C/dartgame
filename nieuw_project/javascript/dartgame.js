@@ -38,7 +38,7 @@ function handleMouseUpLoop(e) {
       for (var iB = 0; iB<scoreE[iA].length; iB++) {
 
          var catch1 = handleMouseUp(e,scoreE[iA][iB])
-         if (catch1 == false) {
+         if (catch1 == "False") {
              console.log("cycles needed to finish")
          } else {
              return catch1
@@ -48,10 +48,40 @@ function handleMouseUpLoop(e) {
 }
 function handleMouseUp(e, scoreE) {
     // get canvasXY of click
-    canvasMouseX = e.clientX - offsetX;
-    canvasMouseY = e.clientY - offsetY;
+    var canvasMouseX = e.clientX - offsetX;
+    var canvasMouseY = e.clientY - offsetY;
+
+    if (GetDeltaXY(canvasMouseX, canvasMouseY, scoreE) < (scoreE.radius * scoreE.radius)){
+
+        // angle in radians
+        var angleRadians = Math.atan2(canvasMouseY - scoreE.y, canvasMouseX - scoreE.x) * 180 / Math.PI;
+        if (angleRadians < 0) {
+            angleRadians = (360 - (angleRadians - (angleRadians*2))) / 180;
+        } else {
+            angleRadians = angleRadians / 180;
+        }
+
+        if ((angleRadians > scoreE.startAngle) && (angleRadians <= scoreE.endAngle)) {
+            console.log("startAngle = " + scoreE.startAngle)
+            console.log("endAngle = " + scoreE.endAngle)
+            console.log("angleRadians = " + angleRadians)
+            console.log("score = " + scoreE.score);
 
 
+            return scoreE.score;
+            //alert("You clicked in the " + scoreE.score
+        } else {
+            return "False";
+        }
+    }
+    else {
+        return "False";
+    }
+}
+
+function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
+
+    //get the y lenght for pytagoras
     if (scoreE.y < canvasMouseY) {
         deltaY = (canvasMouseY - scoreE.y)// * (canvasMouseY - scoreE.y)
         deltaY = deltaY * deltaY
@@ -60,38 +90,17 @@ function handleMouseUp(e, scoreE) {
         deltaY = deltaY * deltaY
     }
 
+    //get the x lenght for pytagoras
     if (scoreE.x < canvasMouseX) {
         dx= scoreE.x
-        deltaX = (canvasMouseX - scoreE.x)// * (canvasMouseX - scoreE.x)
-        deltaX = deltaX * deltaX
+        deltaX = (canvasMouseX - scoreE.x);// * (canvasMouseX - scoreE.x)
+        deltaX = deltaX * deltaX;
     } else {
-        deltaX = (scoreE.x - canvasMouseX)// * (scoreE.x - canvasMouseX)
-        deltaX = deltaX * deltaX
+        deltaX = (scoreE.x - canvasMouseX);// * (scoreE.x - canvasMouseX)
+        deltaX = deltaX * deltaX;
     }
 
-    if ((deltaX + deltaY) < (scoreE.radius * scoreE.radius)){
-
-        // angle in radians
-        var angleRadians = Math.atan2(canvasMouseY - scoreE.y, canvasMouseX - scoreE.x) * 180 / Math.PI;
-        if (angleRadians < 0) {
-            angleRadians = (360 - (angleRadians - (angleRadians*2))) / 180
-        } else {
-            angleRadians = angleRadians / 180
-        }
-
-        if ((angleRadians > scoreE.startAngle) && (angleRadians < scoreE.endAngle)) {
-            console.log("score = " + scoreE.score);
-
-
-            return scoreE.score;
-            //alert("You clicked in the " + scoreE.score
-        } else {
-            return false;
-        }
-    }
-    else {
-        return false;
-    }
+    return (deltaX + deltaY)
 }
 
 
