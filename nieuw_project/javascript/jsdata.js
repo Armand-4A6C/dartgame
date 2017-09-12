@@ -42,7 +42,8 @@ var scoreE = [
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.65, endAngle:1.75, name:"innerpie", color:"black", score:18},
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.75, endAngle:1.85, name:"innerpie", color:"white", score:4},
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.85, endAngle:1.95, name:"innerpie", color:"black", score:13},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.95, endAngle:0.05, name:"innerpie", color:"white", score:9},
+        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.95, endAngle:2.00, name:"innerpie", color:"white", score:9},
+        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.00, endAngle:0.05, name:"innerpie", color:"white", score:9},
     ],
 
     //Triples
@@ -66,7 +67,8 @@ var scoreE = [
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.65, endAngle:1.75, name:"Triples", color:"green", score:18 * 3 },
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.75, endAngle:1.85, name:"Triples", color:"red", score:4 * 3 },
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.85, endAngle:1.95, name:"Triples", color:"green", score:13 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.95, endAngle:0.05, name:"Triples", color:"red", score:9 * 3 },
+        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.95, endAngle:2.00, name:"Triples", color:"red", score:9 * 3 },
+        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.00, endAngle:0.05, name:"Triples", color:"red", score:9 * 3 },
 
     ],
 
@@ -91,7 +93,8 @@ var scoreE = [
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.65, endAngle:1.75, name:"outerPie", color:"black", score:18 },
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.75, endAngle:1.85, name:"outerPie", color:"white", score:4 },
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.85, endAngle:1.95, name:"outerPie", color:"black", score:13 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.95, endAngle:0.05, name:"outerPie", color:"white", score:9 },
+        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.95, endAngle:2.00, name:"outerPie", color:"white", score:9 },
+        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.00, endAngle:0.05, name:"outerPie", color:"white", score:9 },
 
     ],
 
@@ -116,11 +119,12 @@ var scoreE = [
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.65, endAngle:1.75, name:"Doubles", color:"green", score:18 * 2},
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.75, endAngle:1.85, name:"Doubles", color:"red", score:4 * 2},
         {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.85, endAngle:1.95, name:"Doubles", color:"green", score:13 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.95, endAngle:0.05, name:"Doubles", color:"red", score:9 * 2},
+        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.95, endAngle:2.00, name:"Doubles", color:"red", score:9 * 2},
+        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.00, endAngle:0.05, name:"Doubles", color:"red", score:9 * 2},
 
     ],
 
     [
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.475, startAngle:0, endAngle:2, name:"blackRing", color:"black", score:0}
+        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.4750, startAngle:0, endAngle:2, name:"blackRing", color:"black", score:0}
     ],
 ];
