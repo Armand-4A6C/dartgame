@@ -17,114 +17,73 @@ canvasY = canvas.height;
 centerX = canvas.width / 2;
 centerY = canvas.height / 2;
 
-var scoreE = [
-    [{x:centerX, y:centerY, radius:canvasX * 0.9 * 0.01408, startAngle:0, endAngle:2, name:"bullsEye", color:"red", score:50}],
+var scoreE = []
 
-    [{x:centerX, y:centerY, radius:canvasX * 0.9 * 0.03525, startAngle:0, endAngle:2, name:"bullsEyeRing", color:"green", score:25}],
 
-    [
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.05, endAngle:0.15, name:"innerpie", color:"black", score:10},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.15, endAngle:0.25, name:"innerpie", color:"white", score:15},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.25, endAngle:0.35, name:"innerpie", color:"black", score:2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.35, endAngle:0.45, name:"innerpie", color:"white", score:17},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.45, endAngle:0.55, name:"innerpie", color:"black", score:3},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.55, endAngle:0.65, name:"innerpie", color:"white", score:19},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.65, endAngle:0.75, name:"innerpie", color:"black", score:7},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.75, endAngle:0.85, name:"innerpie", color:"white", score:16},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.85, endAngle:0.95, name:"innerpie", color:"black", score:8},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.95, endAngle:1.05, name:"innerpie", color:"white", score:11},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.05, endAngle:1.15, name:"innerpie", color:"black", score:14},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.15, endAngle:1.25, name:"innerpie", color:"white", score:9},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.25, endAngle:1.35, name:"innerpie", color:"black", score:12},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.35, endAngle:1.45, name:"innerpie", color:"white", score:5},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.45, endAngle:1.55, name:"innerpie", color:"black", score:20},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.55, endAngle:1.65, name:"innerpie", color:"white", score:1},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.65, endAngle:1.75, name:"innerpie", color:"black", score:18},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.75, endAngle:1.85, name:"innerpie", color:"white", score:4},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.85, endAngle:1.95, name:"innerpie", color:"black", score:13},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:1.95, endAngle:2.00, name:"innerpie", color:"white", score:9},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.21595, startAngle:0.00, endAngle:0.05, name:"innerpie", color:"white", score:9},
-    ],
+function SetData() {
+    var sAngle = 0.05;
+    var color = [0,0,0,"black","white","red","green"]
+    var allScores = [10,15,2,17,3,19,7,16,8,11,14,9,12,5,20,1,18,4,13,9];
+    var radius = [canvasX * 0.9 * 0.01408, canvasX * 0.9 * 0.03525, canvasX * 0.9 * 0.21595, canvasX * 0.9 * 0.23725, canvasX * 0.9 * 0.35564, canvasX * 0.9 * 0.37694, canvasX * 0.9 * 0.4750 ]
+    var names = ["bullsEye", "bullsEyeRing", "innerpie", "Triples", "Outerpie", "Doubles", "Outerring"];
 
-    //Triples
-    [
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.05, endAngle:0.15, name:"Triples", color:"green", score:10 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.15, endAngle:0.25, name:"Triples", color:"red", score:15 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.25, endAngle:0.35, name:"Triples", color:"green", score:2 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.35, endAngle:0.45, name:"Triples", color:"red", score:17 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.45, endAngle:0.55, name:"Triples", color:"green", score:3 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.55, endAngle:0.65, name:"Triples", color:"red", score:19 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.65, endAngle:0.75, name:"Triples", color:"green", score:7 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.75, endAngle:0.85, name:"Triples", color:"red", score:16 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.85, endAngle:0.95, name:"Triples", color:"green", score:8 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.95, endAngle:1.05, name:"Triples", color:"red", score:11 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.05, endAngle:1.15, name:"Triples", color:"green", score:14 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.15, endAngle:1.25, name:"Triples", color:"red", score:9 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.25, endAngle:1.35, name:"Triples", color:"green", score:12 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.35, endAngle:1.45, name:"Triples", color:"red", score:5 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.45, endAngle:1.55, name:"Triples", color:"green", score:20 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.55, endAngle:1.65, name:"Triples", color:"red", score:1 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.65, endAngle:1.75, name:"Triples", color:"green", score:18 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.75, endAngle:1.85, name:"Triples", color:"red", score:4 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.85, endAngle:1.95, name:"Triples", color:"green", score:13 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:1.95, endAngle:2.00, name:"Triples", color:"red", score:9 * 3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.23725, startAngle:0.00, endAngle:0.05, name:"Triples", color:"red", score:9 * 3 },
+    //bullsEye
+    var aPos = 0
+    scoreE[aPos] = [{x:centerX, y:centerY, radius:radius[aPos], startAngle:0, endAngle:2, name: name[aPos], color:color[5], score:50}];
 
-    ],
+    //bullsEyeRing
+    var aPos = 1
+    scoreE[aPos] = [{x:centerX, y:centerY, radius:radius[aPos], startAngle:0, endAngle:2, name: name[aPos], color:color[6], score:25}];
 
-    //Outerpie
-    [
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.05, endAngle:0.15, name:"outerPie", color:"black", score:10 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.15, endAngle:0.25, name:"outerPie", color:"white", score:15 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.25, endAngle:0.35, name:"outerPie", color:"black", score:12 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.35, endAngle:0.45, name:"outerPie", color:"white", score:17 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.45, endAngle:0.55, name:"outerPie", color:"black", score:3 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.55, endAngle:0.65, name:"outerPie", color:"white", score:19 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.65, endAngle:0.75, name:"outerPie", color:"black", score:7 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.75, endAngle:0.85, name:"outerPie", color:"white", score:16 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.85, endAngle:0.95, name:"outerPie", color:"black", score:8 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.95, endAngle:1.05, name:"outerPie", color:"white", score:11 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.05, endAngle:1.15, name:"outerPie", color:"black", score:14 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.15, endAngle:1.25, name:"outerPie", color:"white", score:9 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.25, endAngle:1.35, name:"outerPie", color:"black", score:12 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.35, endAngle:1.45, name:"outerPie", color:"white", score:5 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.45, endAngle:1.55, name:"outerPie", color:"black", score:20 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.55, endAngle:1.65, name:"outerPie", color:"white", score:1 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.65, endAngle:1.75, name:"outerPie", color:"black", score:18 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.75, endAngle:1.85, name:"outerPie", color:"white", score:4 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.85, endAngle:1.95, name:"outerPie", color:"black", score:13 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:1.95, endAngle:2.00, name:"outerPie", color:"white", score:9 },
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.35564, startAngle:0.00, endAngle:0.05, name:"outerPie", color:"white", score:9 },
+    function createPiesAndDoubles() {
 
-    ],
+        for (var aPos = 2; aPos < 6; aPos++) {
+            var sA = sAngle
+            scoreE[aPos] = []
 
-    //Doubles
-    [
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.05, endAngle:0.15, name:"Doubles", color:"green", score:10 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.15, endAngle:0.25, name:"Doubles", color:"red", score:15 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.25, endAngle:0.35, name:"Doubles", color:"green", score:2 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.35, endAngle:0.45, name:"Doubles", color:"red", score:17 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.45, endAngle:0.55, name:"Doubles", color:"green", score:3 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.55, endAngle:0.65, name:"Doubles", color:"red", score:19 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.65, endAngle:0.75, name:"Doubles", color:"green", score:7 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.75, endAngle:0.85, name:"Doubles", color:"red", score:16 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.85, endAngle:0.95, name:"Doubles", color:"green", score:8 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.95, endAngle:1.05, name:"Doubles", color:"red", score:11 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.05, endAngle:1.15, name:"Doubles", color:"green", score:14 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.15, endAngle:1.25, name:"Doubles", color:"red", score:9 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.25, endAngle:1.35, name:"Doubles", color:"green", score:12 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.35, endAngle:1.45, name:"Doubles", color:"red", score:5 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.45, endAngle:1.55, name:"Doubles", color:"green", score:20 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.55, endAngle:1.65, name:"Doubles", color:"red", score:1 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.65, endAngle:1.75, name:"Doubles", color:"green", score:18 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.75, endAngle:1.85, name:"Doubles", color:"red", score:4 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.85, endAngle:1.95, name:"Doubles", color:"green", score:13 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:1.95, endAngle:2.00, name:"Doubles", color:"red", score:9 * 2},
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.37694, startAngle:0.00, endAngle:0.05, name:"Doubles", color:"red", score:9 * 2},
+            if ( aPos == 3 || aPos == 5) {
+                //sets colour for the double and triple ring
+                color[0] = color[6]
+                color[1] = color[5]
+                color[2] = color[6]
 
-    ],
+                //sets the score multiplier for the double and triple ring
+                if (aPos == 3) {
+                    var multiplier = 3
+                } else {
+                    var multiplier = 2
+                }
 
-    [
-        {x:centerX, y:centerY, radius:canvasX * 0.9 * 0.4750, startAngle:0, endAngle:2, name:"blackRing", color:"black", score:0}
-    ],
-];
+            } else {
+                //sets the colour for the pie pieces
+                color[0] = color[4]
+                color[1] = color[3]
+                color[2] = color[4]
+
+                //sets the multiplier of the pie pieces
+                var multiplier = 1
+            }
+
+            //Sets the piepieces and doubler rings with the global vars x+y-center, radius, sAngle, names, color, allScores,
+            for (var i = 0; i < 19; i++) {
+                if (color[0] == color[1]) {
+                    color[0] = color[2]
+                } else {
+                    color[0] = color[1]
+                }
+
+                var sE = sA + 0.10;
+                scoreE[aPos][i] = {x:centerX, y:centerY, radius:radius[aPos], startAngle:sA, endAngle:sE, name: names[aPos], color:color[0], score:allScores[i] * multiplier}
+                sA = sE;
+            }
+            scoreE[aPos][19] = {x:centerX, y:centerY, radius:radius[aPos], startAngle:1.95, endAngle:2.00, name: names[aPos], color:color[2], score:allScores[19] * multiplier};
+            scoreE[aPos][20] = {x:centerX, y:centerY, radius:radius[aPos], startAngle:0.00, endAngle:0.05, name: names[aPos], color:color[2], score:allScores[19] * multiplier};
+        }
+    }
+    createPiesAndDoubles()
+
+    //Outerring
+    var aPos = 6
+    scoreE[aPos] = [{x:centerX, y:centerY, radius:radius[aPos], startAngle:0, endAngle:2, name:name[aPos], color:color[3], score:0}]
+}
+SetData()
