@@ -6,14 +6,14 @@ function drawArcs(array) {
 
     ctx.beginPath();
     for (var i=0;i<array.length;i++){
-
-    // for (var i=0; i<2; i++){
         ctx.beginPath();
         ctx.moveTo(array[i].x, array[i].y);
         ctx.arc(array[i].x, array[i].y, array[i].radius, array[i].startAngle * Math.PI, array[i].endAngle * Math.PI, false);
         ctx.fillStyle = array[i].color;
         ctx.fill();
+        //console.log(array[i])
     }
+
 
 }
 
@@ -21,7 +21,8 @@ function drawDartboard(array) {
 
     //for (var i = array.length;  i >= 0; i--) {
 
-    for (var i = 6;  i >= 0; i--) {
+    for (var i = scoreE.length -1;  i >= 0; i--) {
+        //console.log(i)
         drawArcs(array[i])
     }
 
@@ -41,7 +42,8 @@ function handleMouseUpLoop(e) {
          if (catch1 == "False") {
              console.log("cycles needed to finish")
          } else {
-             return catch1
+             //return catch1
+             return console.log("score:"+catch1)
          }
       }
   }
@@ -62,14 +64,9 @@ function handleMouseUp(e, scoreE) {
         }
 
         if ((angleRadians > scoreE.startAngle) && (angleRadians <= scoreE.endAngle)) {
-            console.log("startAngle = " + scoreE.startAngle)
-            console.log("endAngle = " + scoreE.endAngle)
-            console.log("angleRadians = " + angleRadians)
-            console.log("score = " + scoreE.score);
-
-
+            // alert("You clicked in the " + scoreE.score)
             return scoreE.score;
-            //alert("You clicked in the " + scoreE.score
+
         } else {
             return "False";
         }
