@@ -5,4 +5,41 @@ function getCursorPosition(canvas, event) {
     console.log("x: " + x + " y: " + y);
 }
 
-check voor de breedte .scrollwidth en height met .scrollHeight
+check voor de breedte .scrollwidth en de height met .scrollHeight
+
+
+mousex
+mousey
+
+centerx
+centery
+
+if centerx < mousex
+  newx = centerx
+else
+  newx= mousex
+
+if centery < mousey
+  newy = centery
+else
+  newy= mousey
+
+
+newx+newy = new
+
+mousex+mousey = mouse
+
+centerx+centery = center
+
+
+mouse - new = a
+center - new = b
+
+
+a= a*a
+
+b= b*b
+
+c= b+a
+
+want a2 +b2 = c2
