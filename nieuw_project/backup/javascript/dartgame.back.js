@@ -94,19 +94,32 @@ function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
 }
 
 function dartStyle() {
-    var dart = document.getElementById('dart')
     dart.style.backgroundColor = "purple";
     dart.style.width = canvasX * 0.1 + "px";
     dart.style.height = canvasY * 0.1 + "px";
-    dart.style.left = canvas.left;
-    dart.style.top = canvas.offsetTop + ;
+    dart.style.left = canvas.offsetLeft + (canvas.width / 2);
+    dart.style.top = canvas.offsetTop + (canvas.height / 2) ;
 
-    console.log(offsetX + centerY)
-    console.log(offsetY + centerY)
+    console.log(offsetX + centerX)
+    console.log(offsetY)
+    console.log(centerX)
 
     var offsetY=canvas.offsetTop;
 }
 dartStyle()
 
+function handleMouseMove(mE) {
+    var mouseX = mE.clientX - offsetX;
+    var mouseY = mE.clientY - offsetY;
 
-document.getElementById("canvas").addEventListener("click", handleMouseUpLoop);
+    alert("hi")
+
+    dart.style.left = mouseX + "px";
+    dart.style.top = mouseY + "px";
+}
+
+
+dart.addEventListener("mousemove", handleMouseMove);
+canvas.addEventListener("mousemove", handleMouseMove);
+
+canvas.addEventListener("click", handleMouseUpLoop);
