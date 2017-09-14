@@ -34,7 +34,7 @@ drawDartboard(scoreE)
 // -------------------------
 
 function handleMouseUpLoop(e) {
-
+console.log("canvasMouseX:" + (e.clientX - offsetX) + " canvasMouseY" + (e.clientY - offsetY))
    for(var iA=0; iA<scoreE.length; iA++) {
       for (var iB = 0; iB<scoreE[iA].length; iB++) {
 
@@ -100,5 +100,40 @@ function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
     return (deltaX + deltaY)
 }
 
+function handleMouseMove(mE) {
+    var mouseX = mE.clientX - offsetX;
+    var mouseY = mE.clientY - offsetY;
 
-document.getElementById("canvas").addEventListener("click", handleMouseUpLoop);
+    console.log("MouseX:" + mouseX + " MouseY:" + mouseY)
+
+    dart.style.left = (mouseX + 9) + "px";
+    dart.style.top = (mouseY) + 9 + "px";
+}
+
+
+function dartStyle() {
+    var dart = document.getElementById('dart')
+    dart.style.backgroundColor = "purple";
+    dart.style.width = canvasX * 0.1 + "px";
+    dart.style.height = canvasY * 0.1 + "px";
+    dart.style.cursor = "none";
+
+    dart.style.position = "absolute";
+    dart.style.left = offsetX + centerX + "px"
+    console.log(dart)
+
+    dart.style.top = offsetY + centerY + "px"
+
+    // console.log(offsetX + centerX)
+    // console.log(offsetY + centerY)
+
+    //var offsetY=canvas.offsetTop;
+}
+dartStyle()
+
+
+dart.addEventListener("mousemove", handleMouseMove);
+canvas.addEventListener("mousemove", handleMouseMove);
+
+canvas.addEventListener("click", handleMouseUpLoop);
+dart.addEventListener("click", handleMouseUpLoop);

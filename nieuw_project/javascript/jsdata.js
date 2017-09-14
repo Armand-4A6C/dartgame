@@ -1,24 +1,24 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
+var dart = document.getElementById('dart')
 
 //var canvasOffset= offset();
-var offsetX=canvas.offsetLeft
-var offsetY=canvas.offsetTop;
+var offsetX = canvas.offsetLeft
+var offsetY = canvas.offsetTop;
 
 // canvas.width = 200 * genScreenMultiplier;
 // canvas.height = 200 * genScreenMultiplier;
 
-canvas.width = 400;
-canvas.height = 400;
+canvas.width = 600;
+canvas.height = 600;
+canvas.style.cursor = "none";
 
 canvasX = canvas.width;
 canvasY = canvas.height;
 
 centerX = canvas.width / 2;
 centerY = canvas.height / 2;
-
 var scoreE = []
-
 
 function SetData() {
     var sAngle = 0.05;
