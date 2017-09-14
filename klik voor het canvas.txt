@@ -43,3 +43,15 @@ b= b*b
 c= b+a
 
 want a2 +b2 = c2
+
+
+
+
+
+<div id="dart" 
+  style="background-color: purple;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: -1;">X
+</div>
