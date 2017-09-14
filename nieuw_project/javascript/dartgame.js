@@ -56,6 +56,28 @@ function drawNumbers(ctx, radius) {
     ctx.translate(- canvas.height / 2, - canvas.height / 2);
 }
 drawNumbers(ctx, (canvas.height / 2 * 0.85));
+
+function dartStyle() {
+    var dart = document.getElementById('dart')
+    dart.style.backgroundColor = "purple";
+    dart.style.width = canvasX * 0.1 + "px";
+    dart.style.height = canvasY * 0.1 + "px";
+    dart.style.cursor = "none";
+
+    dart.style.position = "absolute";
+    dart.style.left = offsetX + centerX + "px"
+    console.log(dart)
+
+    dart.style.top = offsetY + centerY + "px"
+
+    // console.log(offsetX + centerX)
+    // console.log(offsetY + centerY)
+
+    //var offsetY=canvas.offsetTop;
+}
+dartStyle();
+
+
 // -------------------------
 // EventhandleMouseUp
 // -------------------------
@@ -136,28 +158,6 @@ function handleMouseMove(mE) {
     dart.style.left = (mouseX + 9) + "px";
     dart.style.top = (mouseY) + 9 + "px";
 }
-
-
-function dartStyle() {
-    var dart = document.getElementById('dart')
-    dart.style.backgroundColor = "purple";
-    dart.style.width = canvasX * 0.1 + "px";
-    dart.style.height = canvasY * 0.1 + "px";
-    dart.style.cursor = "none";
-
-    dart.style.position = "absolute";
-    dart.style.left = offsetX + centerX + "px"
-    console.log(dart)
-
-    dart.style.top = offsetY + centerY + "px"
-
-    // console.log(offsetX + centerX)
-    // console.log(offsetY + centerY)
-
-    //var offsetY=canvas.offsetTop;
-}
-dartStyle()
-
 
 dart.addEventListener("mousemove", handleMouseMove);
 canvas.addEventListener("mousemove", handleMouseMove);
