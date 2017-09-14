@@ -29,6 +29,33 @@ function drawDartboard(array) {
 }
 drawDartboard(scoreE)
 
+function drawNumbers(ctx, radius) {
+    ctx.translate(canvas.height / 2, canvas.height / 2);
+    ctx.font = radius * 0.10 + "px arial";
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    ctx.fillStyle = '#fff';
+
+    for(var i = 0; i < 20; i++){
+
+    var num = i;
+    if (i < 6) {
+        var num = i + 14;
+    } else {
+        var num = i - 6;
+    }
+        var ang = i * 0.1 * Math.PI
+        ctx.rotate(ang);
+        ctx.translate(0, - radius * 0.93 + canvas.offsetLeft);
+        ctx.rotate(- ang);
+        ctx.fillText(scoreE[2][num].score.toString(), 0, 0);
+        ctx.rotate(ang);
+        ctx.translate(0, radius * 0.93  - canvas.offsetLeft);
+        ctx.rotate(- ang);
+    }
+    ctx.translate(- canvas.height / 2, - canvas.height / 2);
+}
+drawNumbers(ctx, (canvas.height / 2 * 0.85));
 // -------------------------
 // EventhandleMouseUp
 // -------------------------
