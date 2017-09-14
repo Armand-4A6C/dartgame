@@ -23,7 +23,7 @@ var scoreE = []
 function SetData() {
     var sAngle = 0.05;
     var color = [0,0,0,"black","white","red","green"]
-    var allScores = [10,15,2,17,3,19,7,16,8,11,14,9,12,5,20,1,18,4,13,9];
+    var allScores = [10,15,2,17,3,19,7,16,8,11,14,9,12,5,20,1,18,4,13,6];
     var radius = [canvasX * 0.9 * 0.01408, canvasX * 0.9 * 0.03525, canvasX * 0.9 * 0.21595, canvasX * 0.9 * 0.23725, canvasX * 0.9 * 0.35564, canvasX * 0.9 * 0.37694, canvasX * 0.9 * 0.4750 ]
     var names = ["bullsEye", "bullsEyeRing", "innerpie", "Triples", "Outerpie", "Doubles", "Outerring"];
 
