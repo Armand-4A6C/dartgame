@@ -1,3 +1,6 @@
+//----------------
+// canvas = variables
+//----------------
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var dart = document.getElementById('dart')
@@ -6,18 +9,31 @@ var dart = document.getElementById('dart')
 var offsetX = canvas.offsetLeft
 var offsetY = canvas.offsetTop;
 
+canvas.width = 800;
+canvas.height = 800;
+canvas.style.cursor = "none";
+
 // canvas.width = 200 * genScreenMultiplier;
 // canvas.height = 200 * genScreenMultiplier;
-
-canvas.width = 600;
-canvas.height = 600;
-canvas.style.cursor = "none";
 
 canvasX = canvas.width;
 canvasY = canvas.height;
 
 centerX = canvas.width / 2;
 centerY = canvas.height / 2;
+
+//------------
+// Mouse position variables
+//------------
+
+var mouseX
+var mouseY
+var sway = {swayX:0, swayY: -canvas.width * 0.20, countX:1, countY:1}
+
+
+//----------------
+//score variables
+//----------------
 var scoreE = []
 
 function SetData() {
