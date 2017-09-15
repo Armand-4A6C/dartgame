@@ -65,10 +65,10 @@ function dartStyle() {
     dart.style.cursor = "none";
 
     dart.style.position = "absolute";
-    dart.style.left = offsetX + centerX + "px"
-    console.log(dart)
+    dart.style.left = offsetX + centerX + "px";
+    console.log(dart);
 
-    dart.style.top = offsetY + centerY + "px"
+    dart.style.top = offsetY + centerY + "px";
 
     // console.log(offsetX + centerX)
     // console.log(offsetY + centerY)
@@ -99,8 +99,8 @@ console.log("canvasMouseX:" + (e.clientX - offsetX) + " canvasMouseY" + (e.clien
 }
 function handleMouseUp(e, scoreE) {
     // get canvasXY of click
-    var canvasMouseX = e.clientX - offsetX;
-    var canvasMouseY = e.clientY - offsetY;
+    var canvasMouseX = e.clientX - offsetX + sway.swayX ;
+    var canvasMouseY = e.clientY - offsetY + sway.swayY;
 
     if (GetDeltaXY(canvasMouseX, canvasMouseY, scoreE) < (scoreE.radius * scoreE.radius)){
 
@@ -150,14 +150,70 @@ function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
 }
 
 function handleMouseMove(mE) {
-    var mouseX = mE.clientX - offsetX;
-    var mouseY = mE.clientY - offsetY;
-
-    console.log("MouseX:" + mouseX + " MouseY:" + mouseY)
-
-    dart.style.left = (mouseX + 9) + "px";
-    dart.style.top = (mouseY) + 9 + "px";
+    mouseX = mE.clientX - offsetX;
+    mouseY = mE.clientY - offsetY;
 }
+
+function handleDartMovement() {
+    var calcedSway = mouseSway()
+
+    // makes sure the dart stays inside the canvas
+    if ((mouseX + 7 + sway.swayX) < (canvas.width + offsetX) - canvas.width * 0.1) {
+        if ((mouseX + 7 + sway.swayX) >= canvas.offsetLeft) {
+            dart.style.left = (mouseX + 9)  + sway.swayX + "px";
+        }
+    }
+    if ((mouseY + 7 + sway.swayY) < (canvas.height + offsetY) - canvas.height * 0.1 ) {
+        if ((mouseY + 7 + sway.swayY) >= canvas.offsetTop) {
+            dart.style.top = (mouseY) + 9 + sway.swayY + "px";
+        }
+
+    }
+}
+
+
+function mouseSway() {
+    if (sway.countX == 1) {
+        if ( (sway.swayX < (canvas.width * 0.14))) {
+            sway.swayX = sway.swayX + (canvas.width * 0.005);
+        } else {
+            sway.countX = 0;
+            //console.log("up")
+        }
+    }
+    else if (sway.countX == 0) {
+
+        if (sway.swayX > (0 - canvas.width * 0.14) ) {
+            sway.swayX = sway.swayX -(canvas.width * 0.005);
+        } else {
+            sway.countX = 1;
+            //console.log("Down")
+        }
+    }
+
+    if (sway.countY == 1) {
+        if ( (sway.swayY < (canvas.width * 0.14))) {
+            sway.swayY = sway.swayY + (canvas.width * 0.005);
+        } else {
+            sway.countY = 0;
+            //console.log("Left")
+        }
+    }
+    else if (sway.countY == 0) {
+
+        if (sway.swayY > (0 - canvas.width * 0.14) ) {
+            sway.swayY = sway.swayY -(canvas.width * 0.005);
+        } else {
+            sway.countY = 1;
+            //console.log("Right")
+        }
+    }
+    return sway
+
+}
+
+//setInterval(mouseSway, 100); //25
+setInterval(handleDartMovement, 25); //16.6
 
 dart.addEventListener("mousemove", handleMouseMove);
 canvas.addEventListener("mousemove", handleMouseMove);
