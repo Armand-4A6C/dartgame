@@ -1,6 +1,3 @@
-//----------------
-// canvas = variables
-//----------------
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var dart = document.getElementById('dart')
@@ -9,12 +6,12 @@ var dart = document.getElementById('dart')
 var offsetX = canvas.offsetLeft
 var offsetY = canvas.offsetTop;
 
-canvas.width = 800;
-canvas.height = 800;
-canvas.style.cursor = "none";
-
 // canvas.width = 200 * genScreenMultiplier;
 // canvas.height = 200 * genScreenMultiplier;
+
+canvas.width = 400;
+canvas.height = canvas.width
+//canvas.style.cursor = "none";
 
 canvasX = canvas.width;
 canvasY = canvas.height;
