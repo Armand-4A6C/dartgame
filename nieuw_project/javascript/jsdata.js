@@ -1,34 +1,21 @@
-// -----------------
-// set canvas styles
-// -----------------
-
-
-
-var canvas = document.getElementById("canvas");
-
-console.log(canvas.offsetWidth)
-//canvas.style.cursor = "none";
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.width;
-
-// --------------
+// -----------------------
 // sets global variables
-// --------------
-
+// -----------------------
+var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var dart = document.getElementById('dart');
 
-var offsetX = getElementLeft("canvas");
-var offsetY = getElementTop("canvas");
+var centerX
+var centerY
+var offsetX
+var offsetY
+var scoreE
 
-canvasX = canvas.width;
-canvasY = canvas.height;
+//-------------
+// get offset functions
+//-------------
 
-centerX = canvas.width / 2;
-centerY = canvas.height / 2;
-
-// needed for the offset function
-function getElementTop( Elem ) {
+function getOffsetY( Elem ) {
     var elem;
 
     if ( document.getElementById )
@@ -52,7 +39,7 @@ function getElementTop( Elem ) {
 }
 
 // needed for the offset function
-function getElementLeft( Elem ) {
+function getOffsetX( Elem ) {
     var elem;
 
     if ( document.getElementById )
@@ -75,13 +62,6 @@ function getElementLeft( Elem ) {
     return yPos;
 }
 
-
-
-//----------------
-//score variables
-//----------------
-var scoreE = []
-
 function SetData() {
     var sAngle = 0.05;
     var color = [0,0,0,"black","white","red","green"]
@@ -90,11 +70,11 @@ function SetData() {
     var names = ["bullsEye", "bullsEyeRing", "innerpie", "Triples", "Outerpie", "Doubles", "Outerring"];
 
     //bullsEye
-    var aPos = 0
+    var aPos = 0;
     scoreE[aPos] = [{x:centerX, y:centerY, radius:radius[aPos], startAngle:0, endAngle:2, name: name[aPos], color:color[5], score:50}];
 
     //bullsEyeRing
-    var aPos = 1
+    var aPos = 1;
     scoreE[aPos] = [{x:centerX, y:centerY, radius:radius[aPos], startAngle:0, endAngle:2, name: name[aPos], color:color[6], score:25}];
 
     function createPiesAndDoubles() {
@@ -148,4 +128,24 @@ function SetData() {
     var aPos = 6
     scoreE[aPos] = [{x:centerX, y:centerY, radius:radius[aPos], startAngle:0, endAngle:2, name:name[aPos], color:color[3], score:0}]
 }
-SetData()
+
+
+function drawCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.width;
+    centerX = canvas.width / 2;
+    centerY = canvas.height / 2;
+    offsetX = getOffsetX("canvas");
+    offsetY = getOffsetY("canvas");
+    scoreE = [];
+    SetData();
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    drawDartboard(scoreE);
+    drawNumbers(ctx, (canvas.height / 2));
+    dartStyle();
+}
+
+drawCanvas();
+window.addEventListener("resize", drawCanvas);

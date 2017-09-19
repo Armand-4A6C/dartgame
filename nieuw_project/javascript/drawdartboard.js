@@ -67,25 +67,3 @@ function dartStyle() {
 
     dart.style.top = offsetY + centerY + "px";
 }
-
-function drawCanvas() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.width;
-    centerX = canvas.width / 2;
-    centerY = canvas.height / 2;
-    offsetX = getElementLeft("canvas");
-    offsetY = getElementTop("canvas");
-    scoreE = []
-    SetData()
-    //var ctx = canvas.getContext("2d");
-
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-
-    drawDartboard(scoreE)
-    drawNumbers(ctx, (canvas.height / 2));
-    dartStyle();
-}
-
-drawCanvas()
-window.addEventListener("resize", drawCanvas);
