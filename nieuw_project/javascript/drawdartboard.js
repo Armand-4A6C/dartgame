@@ -46,11 +46,11 @@ function drawNumbers(ctx, radius) {
     }
         var ang = i * 0.1 * Math.PI
         ctx.rotate(ang);
-        ctx.translate(0, - radius * 0.93 + canvas.offsetLeft);
+        ctx.translate(0, - radius * 0.93 + offsetX);
         ctx.rotate(- ang);
         ctx.fillText(scoreE[2][num].score.toString(), 0, 0);
         ctx.rotate(ang);
-        ctx.translate(0, radius * 0.93  - canvas.offsetLeft);
+        ctx.translate(0, radius * 0.93  - offsetX);
         ctx.rotate(- ang);
     }
     ctx.translate(- canvas.height / 2, - canvas.height / 2);
@@ -69,8 +69,5 @@ function dartStyle() {
     console.log(dart);
 
     dart.style.top = offsetY + centerY + "px";
-
-
-    //var offsetY=canvas.offsetTop;
 }
 dartStyle();
