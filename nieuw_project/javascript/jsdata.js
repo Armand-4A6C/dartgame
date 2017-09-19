@@ -2,23 +2,27 @@
 // set canvas styles
 // -----------------
 
+
+
 var canvas = document.getElementById("canvas");
+
+console.log(canvas.offsetWidth)
 //canvas.style.cursor = "none";
-canvas.width = 500;
-canvas.height = canvas.width
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.width;
 
 // --------------
 // sets global variables
 // --------------
 
 var ctx = canvas.getContext("2d");
-var dart = document.getElementById('dart')
+var dart = document.getElementById('dart');
 
 //var canvasOffset= offset();
 //var offsetX = canvas.offsetLeft
-var offsetX = getElementLeft("canvas")
+var offsetX = getElementLeft("canvas");
 //var offsetY = canvas.offsetTop
-var offsetY = getElementTop("canvas")
+var offsetY = getElementTop("canvas");
 
 canvasX = canvas.width;
 canvasY = canvas.height;
