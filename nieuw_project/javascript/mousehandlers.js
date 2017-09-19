@@ -86,12 +86,12 @@ function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
 function handleMouseMove(mE) {
     mouseX = mE.clientX - offsetX;
     mouseY = mE.clientY - offsetY;
-    console.log(mouseX)
-    console.log(mouseY)
+    // console.log(mouseX)
+    // console.log(mouseY)
 }
 
 function handleDartMovement() {
-    var calcedSway = mouseSway()
+    //var calcedSway = mouseSway()
 
 
     // makes sure the dart stays left of the right border
@@ -150,9 +150,6 @@ function mouseSway() {
             sway.countY = 1;
         }
     }
-
-    // console.log(sway.swayX)
-    // console.log(sway.swayY)
     return sway
 
 }

@@ -19,15 +19,12 @@ function drawArcs(array) {
 
 function drawDartboard(array) {
 
-    //for (var i = array.length;  i >= 0; i--) {
-
     for (var i = scoreE.length -1;  i >= 0; i--) {
         //console.log(i)
         drawArcs(array[i])
     }
 
 }
-drawDartboard(scoreE)
 
 function drawNumbers(ctx, radius) {
     ctx.translate(canvas.height / 2, canvas.height / 2);
@@ -55,13 +52,13 @@ function drawNumbers(ctx, radius) {
     }
     ctx.translate(- canvas.height / 2, - canvas.height / 2);
 }
-drawNumbers(ctx, (canvas.height / 2));
+
 
 function dartStyle() {
     var dart = document.getElementById('dart')
     dart.style.backgroundColor = "purple";
-    dart.style.width = canvasX * 0.1 + "px";
-    dart.style.height = canvasY * 0.1 + "px";
+    dart.style.width = canvas.width * 0.1 + "px";
+    dart.style.height = canvas.height * 0.1 + "px";
     dart.style.cursor = "none";
 
     dart.style.position = "absolute";
@@ -70,4 +67,25 @@ function dartStyle() {
 
     dart.style.top = offsetY + centerY + "px";
 }
-dartStyle();
+
+function drawCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.width;
+    centerX = canvas.width / 2;
+    centerY = canvas.height / 2;
+    offsetX = getElementLeft("canvas");
+    offsetY = getElementTop("canvas");
+    scoreE = []
+    SetData()
+    //var ctx = canvas.getContext("2d");
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+
+    drawDartboard(scoreE)
+    drawNumbers(ctx, (canvas.height / 2));
+    dartStyle();
+}
+
+drawCanvas()
+window.addEventListener("resize", drawCanvas);
