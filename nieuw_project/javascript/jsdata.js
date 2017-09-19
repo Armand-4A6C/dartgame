@@ -16,15 +16,41 @@ var dart = document.getElementById('dart')
 
 //var canvasOffset= offset();
 var offsetX = canvas.offsetLeft
-var offsetY = canvas.offsetTop;
-
-
+//var offsetY = canvas.offsetTop
+var offsetY = getElementTop("canvas")
 
 canvasX = canvas.width;
 canvasY = canvas.height;
 
 centerX = canvas.width / 2;
 centerY = canvas.height / 2;
+
+// needed for the offset function
+function getElementTop( Elem ) {
+    var elem;
+
+    if ( document.getElementById )
+    {
+        elem = document.getElementById ( Elem );
+    }
+    else if ( document.all )
+    {
+        elem = document.all[Elem];
+    }
+
+    var yPos = elem.offsetTop;
+    var tempEl = elem.offsetParent;
+
+    while ( tempEl != null )
+    {
+        yPos += tempEl.offsetTop;
+        tempEl = tempEl.offsetParent;
+    }
+
+    return yPos;
+}
+
+
 
 //----------------
 //score variables
