@@ -1,7 +1,7 @@
 //--------------------------
 // Mouse Handler variables
 //---------------------------
-var sway = {swayX:0, swayY: (-canvas.width * 0.20), countX:1, countY:1}
+var sway = {swayX:0, swayY: (-canvas.width * 0.12), countX:1, countY:1}
 var mouseX // define it as a global variable
 var mouseY // define it as a global variable
 
@@ -84,8 +84,8 @@ function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
 
 //returns to global variables
 function handleMouseMove(mE) {
-    mouseX = mE.clientX - offsetX;
-    mouseY = mE.clientY - offsetY;
+    mouseX = mE.clientX + offsetX;
+    mouseY = mE.clientY + offsetY;
     console.log(mouseY)
 }
 
@@ -94,13 +94,13 @@ function handleDartMovement() {
 
     // makes sure the dart stays inside the canvas
     if ((mouseX + 7 + sway.swayX) < (canvas.width + offsetX) - canvas.width * 0.1) {
-        if ((mouseX + 7 + sway.swayX) >= canvas.offsetLeft) {
-            dart.style.left = (mouseX + 9)  + sway.swayX + "px";
+        if ((mouseX + 7 + sway.swayX) >= offsetX) {
+            dart.style.left = (mouseX)  + sway.swayX - offsetX + "px";
         }
     }
     if ((mouseY + 7 + sway.swayY) < (canvas.height + offsetY) - canvas.height * 0.1 ) {
-        if ((mouseY + 7 + sway.swayY) >= canvas.offsetTop) {
-            dart.style.top = (mouseY) + 9 + sway.swayY + "px";
+        if ((mouseY+ 7 + sway.swayY) >= offsetY) {
+            dart.style.top = (mouseY) + sway.swayY - offsetY + "px";
         }
 
     }
@@ -142,6 +142,7 @@ function mouseSway() {
             sway.countY = 1;
         }
     }
+
     return sway
 
 }
