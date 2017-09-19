@@ -1,7 +1,7 @@
 //--------------------------
 // Mouse Handler variables
 //---------------------------
-var sway = {swayX:0, swayY: (-canvas.width * 0.12), countX:1, countY:1}
+var sway = {swayX:0.4, swayY: (-canvas.width * 0.12), countX:1, countY:1}
 var mouseX // define it as a global variable
 var mouseY // define it as a global variable
 
@@ -84,23 +84,31 @@ function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
 
 //returns to global variables
 function handleMouseMove(mE) {
-    mouseX = mE.clientX + offsetX;
-    mouseY = mE.clientY + offsetY;
+    mouseX = mE.clientX - offsetX;
+    mouseY = mE.clientY - offsetY;
+    console.log(mouseX)
     console.log(mouseY)
 }
 
 function handleDartMovement() {
     var calcedSway = mouseSway()
 
-    // makes sure the dart stays inside the canvas
-    if ((mouseX + 7 + sway.swayX) < (canvas.width + offsetX) - canvas.width * 0.1) {
-        if ((mouseX + 7 + sway.swayX) >= offsetX) {
-            dart.style.left = (mouseX)  + sway.swayX - offsetX + "px";
+
+    // makes sure the dart stays left of the right border
+    if ((mouseX + sway.swayX) < (canvas.width) - canvas.width * 0.1) {
+
+        // makes sure the dart stays right of the left border
+        if ((mouseX + offsetX + sway.swayX) >= offsetX) {
+            dart.style.left = (mouseX)  + sway.swayX + offsetX + "px";
         }
     }
-    if ((mouseY + 7 + sway.swayY) < (canvas.height + offsetY) - canvas.height * 0.1 ) {
-        if ((mouseY+ 7 + sway.swayY) >= offsetY) {
-            dart.style.top = (mouseY) + sway.swayY - offsetY + "px";
+
+    // makes sure the dart stays above the canvas lower border
+    if ((mouseY + sway.swayY) < (canvas.height ) - canvas.height * 0.1 ) {//dart's height = 0.1
+
+        // makes sure the dart stays below the upper border
+        if ((mouseY + offsetY + sway.swayY) >= offsetY) {
+            dart.style.top = (mouseY) + sway.swayY + offsetY + "px";
         }
 
     }
@@ -143,6 +151,8 @@ function mouseSway() {
         }
     }
 
+    // console.log(sway.swayX)
+    // console.log(sway.swayY)
     return sway
 
 }
