@@ -22,9 +22,12 @@ function handleMouseUp(e, scoreE) {
     var canvasMouseX = e.clientX - offsetX + sway.swayX ;
     var canvasMouseY = e.clientY - offsetY + sway.swayY;
 
+
+    // compares if the clicked point falls in a allowed radius
     if (GetDeltaXY(canvasMouseX, canvasMouseY, scoreE) < (scoreE.radius * scoreE.radius)){
 
-        // angle in radians
+        // calculate in which vector/angle there is clicked compared to the center
+        // and compare if it falls between the score.startAngle score.EndAngle
         var angleRadians = Math.atan2(canvasMouseY - scoreE.y, canvasMouseX - scoreE.x) * 180 / Math.PI;
         if (angleRadians < 0) {
             angleRadians = (360 - (angleRadians - (angleRadians*2))) / 180;
@@ -33,18 +36,20 @@ function handleMouseUp(e, scoreE) {
         }
 
         if ((angleRadians > scoreE.startAngle) && (angleRadians <= scoreE.endAngle)) {
-            // alert("You clicked in the " + scoreE.score)
             return scoreE.score;
 
         } else {
             return "False";
         }
     }
+
+
     else {
         return "False";
     }
 }
 
+// does the math to calculate the distance between the mouse and the center
 function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
 
     //get the y lenght for pytagoras
