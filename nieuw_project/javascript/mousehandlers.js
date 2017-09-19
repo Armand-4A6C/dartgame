@@ -86,6 +86,7 @@ function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
 function handleMouseMove(mE) {
     mouseX = mE.clientX - offsetX;
     mouseY = mE.clientY - offsetY;
+    console.log(mouseY)
 }
 
 function handleDartMovement() {
@@ -107,39 +108,38 @@ function handleDartMovement() {
 
 
 function mouseSway() {
+
+    // does the math for right
     if (sway.countX == 1) {
         if ( (sway.swayX < (canvas.width * 0.14))) {
             sway.swayX = sway.swayX + (canvas.width * 0.005);
         } else {
             sway.countX = 0;
-            //console.log("up")
         }
     }
+    // does the math for left
     else if (sway.countX == 0) {
-
         if (sway.swayX > (0 - canvas.width * 0.14) ) {
             sway.swayX = sway.swayX -(canvas.width * 0.005);
         } else {
             sway.countX = 1;
-            //console.log("Down")
         }
     }
 
+    // does the math for up
     if (sway.countY == 1) {
         if ( (sway.swayY < (canvas.width * 0.14))) {
             sway.swayY = sway.swayY + (canvas.width * 0.005);
         } else {
             sway.countY = 0;
-            //console.log("Left")
         }
     }
+    // does the math for down
     else if (sway.countY == 0) {
-
         if (sway.swayY > (0 - canvas.width * 0.14) ) {
             sway.swayY = sway.swayY -(canvas.width * 0.005);
         } else {
             sway.countY = 1;
-            //console.log("Right")
         }
     }
     return sway
