@@ -19,15 +19,6 @@ canvasY = canvas.height;
 centerX = canvas.width / 2;
 centerY = canvas.height / 2;
 
-//------------
-// Mouse position variables
-//------------
-
-var mouseX
-var mouseY
-var sway = {swayX:0, swayY: -canvas.width * 0.20, countX:1, countY:1}
-
-
 //----------------
 //score variables
 //----------------
