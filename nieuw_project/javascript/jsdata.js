@@ -18,8 +18,6 @@ var dart = document.getElementById('dart')
 var offsetX = canvas.offsetLeft
 var offsetY = canvas.offsetTop;
 
-// canvas.width = 200 * genScreenMultiplier;
-// canvas.height = 200 * genScreenMultiplier;
 
 
 canvasX = canvas.width;

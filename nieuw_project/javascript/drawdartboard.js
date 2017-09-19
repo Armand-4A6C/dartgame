@@ -70,8 +70,6 @@ function dartStyle() {
 
     dart.style.top = offsetY + centerY + "px";
 
-    // console.log(offsetX + centerX)
-    // console.log(offsetY + centerY)
 
     //var offsetY=canvas.offsetTop;
 }
