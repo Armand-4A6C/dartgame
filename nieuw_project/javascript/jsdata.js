@@ -15,7 +15,8 @@ var ctx = canvas.getContext("2d");
 var dart = document.getElementById('dart')
 
 //var canvasOffset= offset();
-var offsetX = canvas.offsetLeft
+//var offsetX = canvas.offsetLeft
+var offsetX = getElementLeft("canvas")
 //var offsetY = canvas.offsetTop
 var offsetY = getElementTop("canvas")
 
@@ -46,7 +47,30 @@ function getElementTop( Elem ) {
         yPos += tempEl.offsetTop;
         tempEl = tempEl.offsetParent;
     }
+    return yPos;
+}
 
+// needed for the offset function
+function getElementLeft( Elem ) {
+    var elem;
+
+    if ( document.getElementById )
+    {
+        elem = document.getElementById ( Elem );
+    }
+    else if ( document.all )
+    {
+        elem = document.all[Elem];
+    }
+
+    var yPos = elem.offsetLeft;
+    var tempEl = elem.offsetParent;
+
+    while ( tempEl != null )
+    {
+        yPos += tempEl.offsetLeft;
+        tempEl = tempEl.offsetParent;
+    }
     return yPos;
 }
 
