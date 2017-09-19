@@ -31,7 +31,7 @@ drawDartboard(scoreE)
 
 function drawNumbers(ctx, radius) {
     ctx.translate(canvas.height / 2, canvas.height / 2);
-    ctx.font = radius * 0.10 + "px arial";
+    ctx.font = radius * 0.09 + "px arial";
     ctx.textBaseline = "middle";
     ctx.textAlign = "center";
     ctx.fillStyle = '#fff';
@@ -44,18 +44,18 @@ function drawNumbers(ctx, radius) {
     } else {
         var num = i - 6;
     }
-        var ang = i * 0.1 * Math.PI
+        var ang = i * 0.1 * Math.PI;
         ctx.rotate(ang);
-        ctx.translate(0, - radius * 0.93 + offsetX);
+        ctx.translate(0, - radius * 0.75);
         ctx.rotate(- ang);
         ctx.fillText(scoreE[2][num].score.toString(), 0, 0);
         ctx.rotate(ang);
-        ctx.translate(0, radius * 0.93  - offsetX);
+        ctx.translate(0, radius * 0.75);
         ctx.rotate(- ang);
     }
     ctx.translate(- canvas.height / 2, - canvas.height / 2);
 }
-drawNumbers(ctx, (canvas.height / 2 * 0.85));
+drawNumbers(ctx, (canvas.height / 2));
 
 function dartStyle() {
     var dart = document.getElementById('dart')
