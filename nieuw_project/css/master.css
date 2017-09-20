@@ -57,7 +57,8 @@ canvas,
 
 #playermode1,
 #playermode2 {
-    border: solid black 1px;
+    border:1px solid #b2b8ad;
+    border: solid grey 1px;
     height: 30px;
     text-decoration-style: bold;
 	-moz-box-shadow:inset 0px 0px 14px -3px #f2fadc;
@@ -71,10 +72,9 @@ canvas,
 	background:linear-gradient(to bottom, #dbe6c4 5%, #9ba892 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbe6c4', endColorstr='#9ba892',GradientType=0);
 	background-color:#dbe6c4;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #b2b8ad;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
 	display:inline-block;
 	cursor:pointer;
 	color:#252525;
