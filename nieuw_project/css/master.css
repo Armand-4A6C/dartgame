@@ -5,4 +5,5 @@ body{
 canvas{
     border:1px solid red;
     width: 100%;
+    max-width:100vh;
 }

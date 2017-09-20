@@ -23,7 +23,6 @@ function drawDartboard(array) {
         //console.log(i)
         drawArcs(array[i])
     }
-
 }
 
 function drawNumbers(ctx, radius) {
