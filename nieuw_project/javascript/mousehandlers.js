@@ -1,11 +1,3 @@
-//--------------------------
-// Mouse Handler variables
-//---------------------------
-var sway = {swayX:0.4, swayY: (-canvas.width * 0.12), countX:1, countY:1}
-var mouseX // define it as a global variable
-var mouseY // define it as a global variable
-
-
 // -------------------------
 // EventhandleMouseUp
 // -------------------------

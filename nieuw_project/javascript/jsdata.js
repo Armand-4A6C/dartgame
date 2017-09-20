@@ -1,15 +1,25 @@
 // -----------------------
 // sets global variables
 // -----------------------
+
+//global non specific vars
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var dart = document.getElementById('dart');
 
+//position variables
 var centerX
 var centerY
 var offsetX
 var offsetY
+
+//score and draw canvas var
 var scoreE
+
+// Mouse Handler variables
+var sway
+var mouseX // define it as a global variable
+var mouseY // define it as a global variable
 
 //-------------
 // get offset functions
@@ -131,17 +141,28 @@ function SetData() {
 
 
 function drawCanvas() {
+
+    //size variables
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.width;
+
+    //position variables
     centerX = canvas.width / 2;
     centerY = canvas.height / 2;
     offsetX = getOffsetX("canvas");
     offsetY = getOffsetY("canvas");
+
+    //array for all variables
     scoreE = [];
+
+    //set mouse sway variable
+    sway = {swayX:0.4, swayY: (-canvas.width * 0.12), countX:1, countY:1}
     SetData();
 
+    //clear canvas
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
+    //fill canvas
     drawDartboard(scoreE);
     drawNumbers(ctx, (canvas.height / 2));
     dartStyle();
