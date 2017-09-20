@@ -6,23 +6,39 @@
 </head>
 
 <body class="col-12">
-    <header class="col-12">
-        <div class="logo" class="col-3"></div>
+    <header class="col-12 col-m-12 nav">
+        <div class="logo" class="col-3 col-m-3">Logo<br><br></div>
     </header>
 
-    <main class="col-12">
-        <div id="banner1" class="col-2"></div>
+    <main class="col-12 col-m-12">
+        <div id="banner1" class="col-2 col-m-2"><br></div>
 
-        <div class="col-8">
-            <div id="scoreBoard" class="col-12"> </div>
-            <div class="col-12">
-                <canvas id="canvas"></canvas>
+        <div class="col-8 col-m-8">
+            <div id="scoreboard" class="col-12 col-m-12">
+                <div class="col-6 col-m-6">
+                    <button id="playermode1"> 1 player mode</button><br>
+                    <button id="playermode2"> 2 player mode</button>
+                </div>
+                <div class="col-6 col-m-6">
+                    <div id="score_player1" class="infoscreen">1 vs 2</div>
+                    <div id="score_player2" class="infoscreen">2 vs 1</div>
+                </div>
+            </div>
+            <div class="col-12 col-m-12 canvascontainer">
+                <canvas id="canvas"></canvas> <!--height is 100%-->
                 <div id="dart"></div>
+            </div>
+            <div class="col-6 col-m-12 rulesscreen">
+                <h2>Rules</h2>
+                <p>
+                    The rules of this game are simple. you need to throw 20 to 1 in a decending order and end with the bullseye.
+                    Can you beat your partner or the cpu opponent ?
+                </p>
             </div>
         </div>
 
 
-        <div id="banner2" class="col-2"> </div>
+        <div id="banner2" class="col-2 col-m-2"> </div>
     </main>
 
     <!-- DrawBoard Functions -->

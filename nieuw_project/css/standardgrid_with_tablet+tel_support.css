@@ -13,7 +13,7 @@
 [class*="col-"] {
     float: left;
     padding: -1px;
-    border: green 1px solid;
+    /*border: green 1px solid;*/
 }
 /* For mobile phones: */
 [class*="col-"] {
@@ -21,7 +21,7 @@
 }
 
 /* For tablets: */
-@media only screen and (min-width: 600px) {
+/*@media only screen and (min-width: 600px) {*/
     .col-m-1 {width: 8.33%;}
     .col-m-2 {width: 16.66%;}
     .col-m-3 {width: 25%;}
@@ -34,10 +34,10 @@
     .col-m-10 {width: 83.33%;}
     .col-m-11 {width: 91.66%;}
     .col-m-12 {width: 100%;}
-}
+/*}*/
 
 /* For desktop: */
-/*@media only screen and (min-width: 768px) {*/
+@media only screen and (min-width: 768px) {
     .col-1 {width: 8.33%;}
     .col-2 {width: 16.66%;}
     .col-3 {width: 25%;}
@@ -50,4 +50,4 @@
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
-/*}*/
+}

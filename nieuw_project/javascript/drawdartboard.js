@@ -55,7 +55,7 @@ function drawNumbers(ctx, radius) {
 
 function dartStyle() {
     var dart = document.getElementById('dart')
-    dart.style.backgroundColor = "purple";
+    //dart.style.backgroundColor = "purple";
     dart.style.width = canvas.width * 0.1 + "px";
     dart.style.height = canvas.height * 0.1 + "px";
     dart.style.cursor = "none";

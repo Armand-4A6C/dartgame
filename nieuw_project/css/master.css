@@ -1,9 +1,109 @@
 body{
-    background-color: ivory;
+    background-color: #fff;
+    margin: 0px;
 }
 
-canvas{
-    border:1px solid red;
+canvas {
     width: 100%;
     max-width:100vh;
+    display: block;
+    margin: 0 auto;
+}
+/*set color of the canvas*/
+canvas,
+.canvascontainer {
+    background-color: #181818;
+}
+
+.nav {
+    margin-top: 0px;
+    margin-left: 0px;
+    background-color: #181818;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+#score_player1,
+#score_player2 {
+    border: solid black 1px;
+    height: 30px;
+}
+
+.infoscreen,
+.rulesscreen {
+    background-color: #fff;
+    padding:5px 15px;
+    border:black solid 1px;
+}
+
+.rulesscreen {
+    border-radius: 0px 0px 5px 5px
+}
+
+#scoreboard {
+    border:black solid 1px;
+    border-radius:6px 6px 0px 0px;
+}
+
+#score_player1 {
+    border-radius: 0px 5px 0px 0px;
+}
+
+
+#playermode1 {
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+
+#playermode1,
+#playermode2 {
+    border: solid black 1px;
+    height: 30px;
+    text-decoration-style: bold;
+	-moz-box-shadow:inset 0px 0px 14px -3px #f2fadc;
+	-webkit-box-shadow:inset 0px 0px 14px -3px #f2fadc;
+	box-shadow:inset 0px 0px 14px -3px #f2fadc;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbe6c4), color-stop(1, #9ba892));
+	background:-moz-linear-gradient(top, #dbe6c4 5%, #9ba892 100%);
+	background:-webkit-linear-gradient(top, #dbe6c4 5%, #9ba892 100%);
+	background:-o-linear-gradient(top, #dbe6c4 5%, #9ba892 100%);
+	background:-ms-linear-gradient(top, #dbe6c4 5%, #9ba892 100%);
+	background:linear-gradient(to bottom, #dbe6c4 5%, #9ba892 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbe6c4', endColorstr='#9ba892',GradientType=0);
+	background-color:#dbe6c4;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #b2b8ad;
+	display:inline-block;
+	cursor:pointer;
+	color:#252525;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	/*max-padding:6px 24px;*/
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ced9bf;
+}
+
+#playermode1:hover,
+#playermode2:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #9ba892), color-stop(1, #dbe6c4));
+	background:-moz-linear-gradient(top, #9ba892 5%, #dbe6c4 100%);
+	background:-webkit-linear-gradient(top, #9ba892 5%, #dbe6c4 100%);
+	background:-o-linear-gradient(top, #9ba892 5%, #dbe6c4 100%);
+	background:-ms-linear-gradient(top, #9ba892 5%, #dbe6c4 100%);
+	background:linear-gradient(to bottom, #9ba892 5%, #dbe6c4 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9ba892', endColorstr='#dbe6c4',GradientType=0);
+	background-color:#9ba892;
+}
+#playermode1,
+#playermode2:active {
+	position:relative;
+	top:1px;
+}
+
+#dart {
+    background-image: url("../img/dartpijl.png");
+    background-size: contain;
 }
