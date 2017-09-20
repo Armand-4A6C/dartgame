@@ -3,7 +3,7 @@
 // -------------------------
 
 function handleMouseUpLoop(e) {
-console.log("canvasMouseX:" + (e.clientX - offsetX) + " canvasMouseY" + (e.clientY - offsetY))
+console.log("canvasMouseX:" + (e.pageX - offsetX) + " canvasMouseY" + (e.pageY - offsetY))
    for(var iA=0; iA<scoreE.length; iA++) {
       for (var iB = 0; iB<scoreE[iA].length; iB++) {
 
@@ -19,8 +19,8 @@ console.log("canvasMouseX:" + (e.clientX - offsetX) + " canvasMouseY" + (e.clien
 }
 function handleMouseUp(e, scoreE) {
     // get canvasXY of click
-    var canvasMouseX = e.clientX - offsetX + sway.swayX ;
-    var canvasMouseY = e.clientY - offsetY + sway.swayY;
+    var canvasMouseX = e.pageX - offsetX + sway.swayX ;
+    var canvasMouseY = e.pageY - offsetY + sway.swayY;
 
 
     // compares if the clicked point falls in a allowed radius
@@ -76,8 +76,8 @@ function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
 
 //returns to global variables
 function handleMouseMove(mE) {
-    mouseX = mE.clientX - offsetX;
-    mouseY = mE.clientY - offsetY;
+    mouseX = mE.pageX - offsetX;
+    mouseY = mE.pageY - offsetY;
     // console.log(mouseX)
     // console.log(mouseY)
 }
