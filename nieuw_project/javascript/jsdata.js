@@ -128,7 +128,7 @@ function SetData() {
                 scoreE[aPos][i] = {x:centerX, y:centerY, radius:radius[aPos], startAngle:sA, endAngle:sE, name: names[aPos], color:color[0], score:allScores[i] * multiplier}
                 sA = sE;
             }
-            scoreE[aPos][19] = {x:centerX, y:centerY, radius:radius[aPos], startAngle:1.95, endAngle:2.00, name: names[aPos], color:color[2], score:allScores[19] * multiplier};
+            scoreE[aPos][19] = {x:centerX, y:centerY, radius:radius[aPos], startAngle:1.95, endAngle:2.01, name: names[aPos], color:color[2], score:allScores[19] * multiplier};
             scoreE[aPos][20] = {x:centerX, y:centerY, radius:radius[aPos], startAngle:0.00, endAngle:0.05, name: names[aPos], color:color[2], score:allScores[19] * multiplier};
         }
     }
@@ -141,7 +141,6 @@ function SetData() {
 
 
 function drawCanvas() {
-
     //size variables
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.width;
