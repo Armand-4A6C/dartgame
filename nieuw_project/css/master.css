@@ -3,18 +3,24 @@ body{
     margin: 0px;
 }
 
+/*----------------
+ style the canvas
+ ---------------*/
 canvas {
     width: 100%;
     max-width:100vh;
     display: block;
     margin: 0 auto;
 }
-/*set color of the canvas*/
+
 canvas,
 .canvascontainer {
     background-color: #181818;
 }
 
+/*----------------
+ style header
+ ---------------*/
 .nav {
     margin-top: 0px;
     margin-left: 0px;
@@ -23,12 +29,22 @@ canvas,
     margin-bottom: 20px;
 }
 
+/*---------------------
+ style the scrore blocks
+ -----------------------*/
 #score_player1,
 #score_player2 {
     border: solid black 1px;
     height: 30px;
 }
 
+#score_player1 {
+    border-radius: 0px 5px 0px 0px;
+}
+
+/*-----------------------------------
+ style top and bottom info containers
+ --------------------------------------*/
 .infoscreen,
 .rulesscreen {
     background-color: #fff;
@@ -40,20 +56,19 @@ canvas,
     border-radius: 0px 0px 5px 5px
 }
 
-#scoreboard {
+.scoreinfocontain {
+    border: solid black 1px;
+    height: 60px;
+}
+
+.scoreboard {
     border:black solid 1px;
     border-radius:6px 6px 0px 0px;
 }
 
-#score_player1 {
-    border-radius: 0px 5px 0px 0px;
-}
-
-
-#playermode1 {
-    margin-top: -1px;
-    margin-bottom: 1px;
-}
+/*-----------------------------------
+ style the game buttons
+ --------------------------------------*/
 
 #playermode1,
 #playermode2 {
@@ -81,9 +96,13 @@ canvas,
 	font-family:Arial;
 	font-size:14px;
 	font-weight:bold;
-	/*max-padding:6px 24px;*/
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ced9bf;
+}
+
+#playermode1 {
+    margin-top: -2px;
+    border-top-color: black;
 }
 
 #playermode1:hover,
@@ -103,7 +122,21 @@ canvas,
 	top:1px;
 }
 
+/*--------------
+ style the dart.
+ --------------*/
 #dart {
     background-image: url("../img/dartpijl.png");
     background-size: contain;
+}
+
+/*---------------------
+ Style the banner areas
+ ----------------------*/
+#banner1,
+#banner2 {
+    margin-top: 60px;
+    background-color: green;
+    height: 66.66vw;
+    max-height: 100vh
 }

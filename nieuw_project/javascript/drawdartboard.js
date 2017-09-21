@@ -3,7 +3,6 @@
 // -------------------------
 
 function drawArcs(array) {
-
     ctx.beginPath();
     for (var i=0;i<array.length;i++){
         ctx.beginPath();
@@ -18,7 +17,6 @@ function drawArcs(array) {
 }
 
 function drawDartboard(array) {
-
     for (var i = scoreE.length -1;  i >= 0; i--) {
         //console.log(i)
         drawArcs(array[i])
