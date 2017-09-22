@@ -3,21 +3,26 @@
 // -------------------------
 
 function handleMouseUpLoop(e) {
-console.log("canvasMouseX:" + (e.pageX - offsetX) + " canvasMouseY" + (e.pageY - offsetY))
-   for(var iA=0; iA<scoreE.length; iA++) {
-      for (var iB = 0; iB<scoreE[iA].length; iB++) {
+    if (activeGame == 1) {
+        console.log("canvasMouseX:" + (e.pageX - offsetX) + " canvasMouseY" + (e.pageY - offsetY))
+       for(var iA=0; iA<scoreE.length; iA++) {
+          for (var iB = 0; iB<scoreE[iA].length; iB++) {
 
-         var catch1 = handleMouseUp(e,scoreE[iA][iB])
-         if (catch1 == "False") {
-             console.log("cycles needed to finish")
-         } else {
-             //return catch1
-             return console.log("score:"+catch1)
-         }
-      }
-  }
+             var catch1 = handleMouseUp(e,scoreE[iA][iB])
+             if (catch1 == "False") {
+                console.log("cycles needed to finish")
+                } else {
+                 //return catch1
+                gameController(catch1)
+                return console.log(catch1)
+
+                }
+            }
+        }
+    }
 }
 function handleMouseUp(e, scoreE) {
+
     // get canvasXY of click
     var canvasMouseX = e.pageX - offsetX + sway.swayX ;
     var canvasMouseY = e.pageY - offsetY + sway.swayY;
@@ -152,5 +157,5 @@ setInterval(handleDartMovement, 25); //16.6
 dart.addEventListener("mousemove", handleMouseMove);
 canvas.addEventListener("mousemove", handleMouseMove);
 
-canvas.addEventListener("click", handleMouseUpLoop);
-dart.addEventListener("click", handleMouseUpLoop);
+canvas.addEventListener("mouseup", handleMouseUpLoop);
+dart.addEventListener("mouseup", handleMouseUpLoop);
