@@ -150,6 +150,7 @@ function drawCanvas() {
     centerY = canvas.height / 2;
     offsetX = getOffsetX("canvas");
     offsetY = getOffsetY("canvas");
+    canvas.style.cursor = "none";
 
     //array for all variables
     scoreE = [];

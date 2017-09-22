@@ -12,7 +12,6 @@ function handleMouseUpLoop(e) {
              if (catch1 == "False") {
                 console.log("cycles needed to finish")
                 } else {
-                 //return catch1
                 console.log(catch1)
                 gameController(catch1)
                 return
@@ -48,7 +47,6 @@ function handleMouseUp(e, scoreE) {
         }
     }
 
-
     else {
         return "False";
     }
@@ -83,13 +81,10 @@ function GetDeltaXY(canvasMouseX, canvasMouseY, scoreE ) {
 function handleMouseMove(mE) {
     mouseX = mE.pageX - offsetX;
     mouseY = mE.pageY - offsetY;
-    // console.log(mouseX)
-    // console.log(mouseY)
 }
 
 function handleDartMovement() {
-    //var calcedSway = mouseSway()
-
+    var calcedSway = mouseSway()
 
     // makes sure the dart stays left of the right border
     if ((mouseX + sway.swayX) < (canvas.width) - canvas.width * 0.1) {
@@ -151,7 +146,6 @@ function mouseSway() {
 
 }
 
-//setInterval(mouseSway, 100); //25
 setInterval(handleDartMovement, 25); //16.6
 
 dart.addEventListener("mousemove", handleMouseMove);
