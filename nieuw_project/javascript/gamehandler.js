@@ -55,37 +55,45 @@ function startGame() {
 
 function gameController(throwScore) {
     if (pTurn == 0) {
+
+        gameLog.innerHTML = "P1 Mist <br>";
         if (gameScores[scoreP1] == throwScore) {
             scoreP1++
 
             if (gameScores[scoreP1] < 21) {
                 scoreLogP1.innerHTML = "P1:" + gameScores[scoreP1];
+                gameLog.innerHTML = "P1 Raakt " + throwScore +"<br>";
 
             } else if (gameScores[scoreP1] == 50) {
                 scoreLogP1.innerHTML = "P1:Bullseye";
+                gameLog.innerHTML = "P1 Raakt " + throwScore +"<br>";
 
             } else {
+                pTurn = 1;
                 activeGame = 0;
                 gameLog.innerHTML = "P1 has won the game";
             }
         }
         if (activeGame == 1) {
             pTurn = 1;
-            gameLog.innerHTML = player2 + " is aan de beurt";
+            gameLog.innerHTML += player2 + " is aan de beurt";
         }
-        if (cpu == 1) {
+        if (cpu == 1 && activeGame == 1) {
             controleCpu()
         }
     }
     else {
+        gameLog.innerHTML = player2 + " Mist <br>";
         if (gameScores[scoreP2] == throwScore) {
             scoreP2++
 
             if (gameScores[scoreP2] < 21) {
                 scoreLogP2.innerHTML = player2 + ":" + gameScores[scoreP2];
+                gameLog.innerHTML = player2 + " Raakt " + throwScore +"<br>";
 
-            } else if (gameScores[scoreP1] == 50) {
+            } else if (gameScores[scoreP2] == 50) {
                 scoreLogP2.innerHTML = player2 + ":Bullseye";
+                gameLog.innerHTML = player2 + " Raakt " + throwScore +"<br>";
 
             } else {
                 activeGame = 0;
@@ -94,16 +102,17 @@ function gameController(throwScore) {
         }
         if (activeGame == 1) {
             pTurn = 0;
-            gameLog.innerHTML = "P1 is aan de beurt";
+            gameLog.innerHTML += "P1 is aan de beurt";
         }
     }
 }
 
 function controleCpu() {
     var min = gameScores[scoreP2] -1;
-    var max = gameScores[scoreP2] +1;
+    var max = gameScores[scoreP2] +0;
     var cpuThrow = Math.floor(Math.random() * (max - min + 1) ) + min;
-    console.log(cpuThrow);
+    console.log("cpu throws:" + cpuThrow);
+    gameController(cpuThrow)
 }
 
 
