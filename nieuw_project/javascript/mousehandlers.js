@@ -151,5 +151,5 @@ setInterval(handleDartMovement, 25); //16.6
 dart.addEventListener("mousemove", handleMouseMove);
 canvas.addEventListener("mousemove", handleMouseMove);
 
-canvas.addEventListener("mouseup", handleMouseUpLoop);
-dart.addEventListener("mouseup", handleMouseUpLoop);
+canvas.addEventListener("click", handleMouseUpLoop);
+dart.addEventListener("click", handleMouseUpLoop);
