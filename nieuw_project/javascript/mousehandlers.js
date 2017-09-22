@@ -13,9 +13,9 @@ function handleMouseUpLoop(e) {
                 console.log("cycles needed to finish")
                 } else {
                  //return catch1
+                console.log(catch1)
                 gameController(catch1)
-                return console.log(catch1)
-
+                return
                 }
             }
         }
