@@ -168,10 +168,11 @@ canvas,
  ----------------------*/
 #banner1,
 #banner2 {
-    margin-top: 60px;
+    /*margin-top: -20px;*/
+    /*margin-bottom: -20px;*/
     background-color: green;
-    height: 66.66vw;
-    max-height: 100vh
+    /*height: 66.66vw;*/
+    /*max-height: 100vh*/
 }
 
 .rulesscreen h2 {
