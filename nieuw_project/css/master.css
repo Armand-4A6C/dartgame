@@ -36,6 +36,7 @@ canvas,
 #score_player2 {
     border: solid black 1px;
     height: 30px;
+    padding: 0px;
 }
 
 #score_player1 {
@@ -59,6 +60,15 @@ canvas,
 .scoreinfocontain {
     border: solid black 1px;
     height: 60px;
+}
+#gamelog {
+    font-size: 12px;
+}
+
+@media only screen and (min-width: 600px){
+    #gamelog {
+        font-size: 15px;
+    }
 }
 
 .scoreboard {
