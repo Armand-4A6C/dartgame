@@ -156,6 +156,3 @@ canvas,
     font-size: 25px;
     margin: 10px 0px;
 }
-.rulesscreen p::first-letter {
-    font-weight: bold;
-}
