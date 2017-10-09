@@ -25,16 +25,15 @@ var mouseY // define it as a global variable
 // get offset functions
 //-------------
 
-function getOffsetY( Elem ) {
-    var elem;
+function getOffsetY( elem ) {
 
     if ( document.getElementById )
     {
-        elem = document.getElementById ( Elem );
+        elem = document.getElementById ( elem );
     }
     else if ( document.all )
     {
-        elem = document.all[Elem];
+        elem = document.all[elem];
     }
 
     var yPos = elem.offsetTop;
@@ -49,16 +48,15 @@ function getOffsetY( Elem ) {
 }
 
 // needed for the offset function
-function getOffsetX( Elem ) {
-    var elem;
+function getOffsetX( elem ) {
 
     if ( document.getElementById )
     {
-        elem = document.getElementById ( Elem );
+        elem = document.getElementById ( elem );
     }
     else if ( document.all )
     {
-        elem = document.all[Elem];
+        elem = document.all[elem];
     }
 
     var yPos = elem.offsetLeft;
@@ -74,7 +72,7 @@ function getOffsetX( Elem ) {
 
 function SetData() {
     var sAngle = 0.05;
-    var color = [0,0,0,"black","white","red","green"]
+    var color = [0,0,0,"black","white","red","green"];
     var allScores = [10,15,2,17,3,19,7,16,8,11,14,9,12,5,20,1,18,4,13,6];
     var radius = [canvas.width * 0.9 * 0.01408, canvas.width * 0.9 * 0.03525, canvas.width * 0.9 * 0.21595, canvas.width * 0.9 * 0.23725, canvas.width * 0.9 * 0.35564, canvas.width * 0.9 * 0.37694, canvas.width * 0.9 * 0.4750 ]
     var names = ["bullsEye", "bullsEyeRing", "innerpie", "Triples", "Outerpie", "Doubles", "Outerring"];
